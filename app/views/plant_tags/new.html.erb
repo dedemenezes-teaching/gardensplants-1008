@@ -2,7 +2,12 @@
   <div class="row justify-content-center mt-5">
     <div class="col-12 col-md-8">
       <%= simple_form_for [@plant, @plant_tag] do |f| %>
-        <%= f.input :tag, collection: Tag.all, input_html: { multiple: true, class: 'multiple-select' } %>
+        <%= f.input :tag,
+                    collection: Tag.all,
+                    input_html: {
+                      multiple: true,
+                      data: { controller: 'tom-select'}},
+                      include_hidden: false %>
         <%= f.submit %>
       <% end %>
     </div>
